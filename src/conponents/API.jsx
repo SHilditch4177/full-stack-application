@@ -4,14 +4,11 @@ const ApiImages=()=>{
   const [imageArray, setImageArray]=useState([]);
   const[toggle,setToggle]=useState(true);
   const getImages=async () => {
-    try {
-      const response=await fetch("https://picsum.photos/v2/list")
+    const response=await fetch("https://picsum.photos/v2/list")
     const data= await response.json();
     setImageArray(data)
-    } catch (error) {
-      console.log(error);
-      
-    }
+  }
+
     useEffect(()=>{getImages()},[])
     return(
         <>
@@ -33,7 +30,5 @@ const ApiImages=()=>{
     })}
         </>
     )
-  }
-
 }
 export default ApiImages;
